@@ -13,7 +13,7 @@ my_cp source.txt destination.txt
 
 second way:
 1. go to **src** directory
-2. compile the program using  [gcc](https://www.geeksforgeeks.org/gcc-command-in-linux-with-examples/)
+2. compile the program using  [gcc](https://www.geeksforgeeks.org/gcc-command-in-linux-with-examples/)  
 **Make sure that you have MinGW installed on your machine**
 ```bash
 gcc main.c -o my_cp
