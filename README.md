@@ -1,2 +1,5 @@
-# Implementation of some of OS Commands that work on Linux and Windows  
-1- CP Command
+# Implementation of some of Windows CMD and Linux Commands  
+1. CP Command [Windows / Linux]  
+  
+## Contributing
+Pull requests are welcomed, for changes please open an issue first to discuss what you would like to change.
