@@ -1,5 +1,5 @@
 # CP Command Implementaion  
-basic implemenation of the windows' CMD copy-like command that copies file from one destination to another  
+basic implemenation of the windows' CMD copy command that copies file from one destination to another  
 
 ## Compiling
 First Way:
