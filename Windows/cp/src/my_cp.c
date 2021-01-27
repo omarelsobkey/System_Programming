@@ -1,6 +1,5 @@
 #include "../include/my_cp.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 int copy(int argc, char **argv) {
     FILE *srcFilePtr, *dstFilePtr;
@@ -16,30 +15,17 @@ int copy(int argc, char **argv) {
     }
 
     // open the destination file for both reading and writing the binaries
-    dstFilePtr = fopen(argv[2], "wb+");
-
-    char *buff; // array to store the data of source file
-    long long numbytes; // variable to store the number of bytes of source's file data
-
-    // Get the number of bytes that the source file contains
-    fseek(srcFilePtr, 0L, SEEK_END);
-    numbytes = ftell(srcFilePtr);
-
-    // reset the file position indicator to the beginning of the file
-    fseek(srcFilePtr, 0L, SEEK_SET);
-
-    // grab sufficient memory for the buffer to hold the text
-    buff = (char *) calloc(numbytes, sizeof(char));
-
-    // memory error
-    if (buff == NULL)
+	if ((dstFilePtr = fopen(argv[2], "wb+")) == NULL) {
         return 3;
+    }
 
-    // copy all the binary into the buffer from the source file
-    fread(buff, sizeof(char), numbytes, srcFilePtr);
-    // write all the binary into the distination file from the buffer
-    fwrite(buff, sizeof(char), numbytes, dstFilePtr);
+    char buff[10]; // array to store the data of source file
+    int count; // stores the number of digits read by the fread() function
 
+    // copy all the binary into the buffer from the source file and writes it to the distination file
+    while((count = fread(buff, sizeof(char), 10, srcFilePtr)) != 0){
+    	fwrite(buff, sizeof(char), count, dstFilePtr);
+    }    
 
     // close the files
     fclose(srcFilePtr);
